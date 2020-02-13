@@ -1,0 +1,94 @@
+﻿<Page
+    x:Class="PrintApp.MainPrintPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PrintApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <RichTextBlock>
+        <Paragraph x:Name="MyName" FontSize="32"
+                   TextAlignment="Center">The USS Enterprise NCC-1701-A</Paragraph>
+        <Paragraph>
+            <InlineUIContainer>
+                <Grid HorizontalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Image Source="ms-appx:///Assets/StoreLogo.png"
+                           Height="48" />
+                    <TextBlock Text="hwllowcj"
+                               Grid.Column="1"
+                               FontSize="32"
+                               Foreground="Black"
+                               Margin="16"
+                               TextWrapping="Wrap" />
+                </Grid>
+            </InlineUIContainer>
+        </Paragraph>
+        <Paragraph>The USS Enterprise (NCC-1701-A) was a Federation Constitution-class heavy cruiser that was in service with Starfleet in the late 23rd century. This starship became the second Federation ship to bear the name Enterprise.</Paragraph>
+        <Paragraph>Externally, the Enterprise-A was virtually identical to the refit USS Enterprise, destroyed several months prior to the launch.</Paragraph>
+
+        <Paragraph>
+            <Run Text="SelectedQuote"
+                 FontSize="32"
+                 Foreground="Black" />
+        </Paragraph>
+        <Paragraph>The bridge was located on Deck 1, at the very top of the saucer section. The large viewscreen could project different views from cameras scattered on the saucer section of the ship. The Enterprise could also show tactical views and alerts on the screen along with hails. There were two turbo lifts.</Paragraph>
+        <Paragraph>The torpedo bay was on Deck 13. It was much more automated than on the previous Enterprise, and the torpedo room itself was smaller and enclosed.</Paragraph>
+        <!-- This one gets truncated with a long text -->
+        <Paragraph>
+            <InlineUIContainer>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="ms-appx:///Assets/StoreLogo.png"
+                           Height="180" />
+                    <TextBlock Text="WCJSelectedQuote"
+                               FontSize="32"
+                               Foreground="Black"
+                               Margin="16"
+                               TextWrapping="Wrap" />
+                </StackPanel>
+            </InlineUIContainer>
+        </Paragraph>
+        <Paragraph>
+            <InlineUIContainer>
+                <Border BorderBrush="Green"
+                        BorderThickness="2"
+                        Margin="0 4">
+                    <ListBox>
+                        <ListBoxItem>1</ListBoxItem>
+                        <ListBoxItem>2</ListBoxItem>
+                        <ListBoxItem>3</ListBoxItem>
+                        <ListBoxItem>4</ListBoxItem>
+                    </ListBox>
+                </Border>
+            </InlineUIContainer>
+        </Paragraph>
+        <Paragraph>In 2293, the Enterprise-A was due to be retired along with most of her command crew. However, she was pressed back into service for one last mission as an escort for Klingon chancellor Gorkon during the initial stages of the Khitomer Accords. The ship rendezvoused with the Klingon flagship, Kronos One, and was to follow it to Earth. Unfortunately, a joint Starfleet, Klingon, and Romulan conspiracy had an operative, Lieutenant Valeris, aboard the ship. Valeris participated in a plan to implicate the Enterprise and Captain Kirk as rogue assailants in Gorkon's murder, with the goal of derailing the peace process. The Enterprise appeared to fire two photon torpedoes at Kronos One, temporarily disabling her propulsion and gravity systems. Amid the chaos two space-suited Starfleet crew members, Burke and Samno, beamed aboard, assassinating Gorkon. Valeris altered the ship's records to make it seem as if two torpedoes had been fired. The torpedoes actually came from a cloaked protoype Bird-of-Prey directly below the Enterprise, which had been modified to fire while cloaked.</Paragraph>
+
+        <!-- Renders correctly -->
+        <Paragraph>
+            <InlineUIContainer>
+                <Grid HorizontalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Image Source="ms-appx:///Assets/StoreLogo.png"
+                           Height="180" />
+                    <TextBlock Text="{Binding SelectedQuote}"
+                               Grid.Column="1"
+                               FontSize="32"
+                               Foreground="Black"
+                               Margin="16"
+                               TextWrapping="Wrap" />
+                </Grid>
+            </InlineUIContainer>
+        </Paragraph>
+        <Paragraph Foreground="Gray"
+                   TextAlignment="Right">Source: http://en.memory-alpha.org/wiki/USS_Enterprise_%28NCC-1701-A%29</Paragraph>
+    </RichTextBlock>
+</Page>
